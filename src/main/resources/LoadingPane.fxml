@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openjfx.Controllers.LoadingPaneController">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <AnchorPane>
+               <children>
+                  <GridPane alignment="CENTER" prefHeight="349.6" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" vgap="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <AnchorPane>
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="452.0" text="Загрузить архитектуру и веса модели из одного файла H5:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></Label>
+                                    <Button fx:id="loadModelFullH5Button" mnemonicParsing="false" onAction="#loadModelFullH5" text="Файл с расширением *.h5" />
+                                 </children>
+                              </VBox>
+                           </children></AnchorPane>
+                        <AnchorPane GridPane.rowIndex="1">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="209.60000610351562" prefHeight="88.0" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="22.0" prefWidth="400.0" text="Загрузить только архитектуру модели из файла JSON:" textAlignment="JUSTIFY">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></Label>
+                                    <Button fx:id="loadModelArchitectureJSONButton" mnemonicParsing="false" onAction="#loadModelArchitectureJSON" text="Файл с расширением *.json" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane GridPane.rowIndex="2">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="117.5999984741211" prefHeight="88.0" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="400.0" text="Загрузить только веса модели из H5:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></Label>
+                                    <Button fx:id="loadModelWeightsH5Button" mnemonicParsing="false" onAction="#loadModelWeightsH5" text="Файл с расширением *.h5" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane GridPane.rowIndex="3">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="209.60000610351562" prefHeight="88.0" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <Label alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="22.0" prefWidth="400.0" text="Перевести файл архитектуры модели из YAML в JSON:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin></Label>
+                                    <Button fx:id="convertModelArchitectureFromYAMLToJSONButton" mnemonicParsing="false" onAction="#convertModelArchitectureFromYAMLToJSON" text="Файл с расширением *.yaml" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <AnchorPane prefHeight="50.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label nodeOrientation="RIGHT_TO_LEFT" text="Загруженная Архитектура модели:">
+                           <graphic>
+                              <Label fx:id="activeArchitectureFilePath" text="Empty">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label nodeOrientation="RIGHT_TO_LEFT" text="Загруженные Веса модели:">
+                           <graphic>
+                              <Label fx:id="activeWeightsFilePath" text="Empty">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </graphic>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                     </children></VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding></AnchorPane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

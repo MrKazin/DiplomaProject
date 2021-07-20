@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openjfx.Controllers.InteractingPaneController">
+   <children>
+      <BorderPane layoutX="86.0" layoutY="161.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <AnchorPane prefHeight="60.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="5.0" />
+               </padding>
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="105.6" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-spacing: 15;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="LoadCSVDataButton" mnemonicParsing="false" onAction="#LoadCSVData" prefHeight="26.0" prefWidth="148.0" text="Загрузить данные CSV" />
+                        <Button mnemonicParsing="false" onAction="#clearCSVData" prefHeight="26.0" prefWidth="101.0" text="Очистить все" />
+                        <Button fx:id="calculateResultButton" mnemonicParsing="false" onAction="#calculateResult" text="Вычислить результат" />
+                        <Button fx:id="saveCSVDataButton" mnemonicParsing="false" onAction="#saveCSVData" text="Сохранить в CSV" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></HBox>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" pannable="true" prefHeight="340.0" prefWidth="600.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <TableView fx:id="inputTableView">
+                          <columns>
+                            <!--<TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />-->
+                          </columns>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <AnchorPane prefHeight="340.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="5.0" />
+               </BorderPane.margin>
+               <children>
+                  <TabPane style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab text="Нормализация">
+                           <content>
+                              <VBox alignment="TOP_CENTER" prefHeight="340.0" prefWidth="200.0">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Нормализация данных:">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Какие данные нормализовать:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="normalizationColumnComboBox" disable="true" onAction="#saveChosenNormalizationColumnIndex" prefWidth="150.0" promptText="Выберите колонку">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <Label text="Ввести Min и Max вручную?">
+                                       <padding>
+                                          <Insets bottom="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <CheckBox fx:id="manualNormalizationCheckBox" disable="true" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#manualSelected" text="Ввести вручную:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="automaticNormalizationCheckBox" disable="true" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#automaticSelected" text="Определить в системе:">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
+                                    <Label nodeOrientation="RIGHT_TO_LEFT" text="Min:">
+                                       <graphic>
+                                          <TextField fx:id="minValueField" alignment="CENTER" disable="true" prefHeight="25.0" prefWidth="100.0" promptText="0.0" />
+                                       </graphic>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label nodeOrientation="RIGHT_TO_LEFT" text="Max:">
+                                       <graphic>
+                                          <TextField fx:id="maxValueField" alignment="CENTER" disable="true" prefHeight="25.0" prefWidth="100.0" promptText="100.0" />
+                                       </graphic>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Button fx:id="normalizeButton" disable="true" mnemonicParsing="false" onAction="#normalizeData" prefHeight="26.0" prefWidth="100.0" text="Нормализовать">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="cancelNormalizationButton" disable="true" mnemonicParsing="false" onAction="#cancelNormalization" prefHeight="26.0" prefWidth="101.0" text="Отменить" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab text="Простые операции">
+                           <content>
+                              <VBox alignment="TOP_CENTER">
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Простые операции:">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Тип операции:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="typeOfOperationComboBox" disable="true" onAction="#saveChosenTypeOfOperation" prefHeight="26.0" prefWidth="160.0" promptText="Выберите операцию">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <Label text="Для какой колонки:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="mathMainColumnComboBox" disable="true" onAction="#saveMainMathColumnIndex" prefWidth="150.0" promptText="Выберите колонку">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <CheckBox fx:id="manualMathValueCheckBox" disable="true" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#manualMathValueSelected" text="Вручную ввести значение:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
+                                    <CheckBox fx:id="columnMathValueCheckBox" disable="true" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" onAction="#columnMathValueSelected" text="Взять из другой колонки:">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
+                                    <Label nodeOrientation="RIGHT_TO_LEFT" text="значение:">
+                                       <graphic>
+                                          <TextField fx:id="manualMathValueField" alignment="CENTER" disable="true" prefHeight="25.0" prefWidth="100.0" promptText="1.0" />
+                                       </graphic>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Label text="Из какой колонки значение:">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <ComboBox fx:id="mathAdditionalColumnComboBox" disable="true" onAction="#saveAdditionalMathColumnIndex" prefWidth="150.0" promptText="Выберите колонку">
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </ComboBox>
+                                    <Button fx:id="mathButton" disable="true" mnemonicParsing="false" onAction="#doMath" text="Вычислить">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button fx:id="cancelMathButton" disable="true" mnemonicParsing="false" onAction="#cancelMath" text="Отменить" />
+                                 </children></VBox>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </children></AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

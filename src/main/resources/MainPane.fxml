@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="openjfx.Controllers.MainPaneController">
+   <children>
+      <BorderPane fx:id="mainBorderPane" layoutX="-7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane prefWidth="150.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="390.4" prefWidth="130.4" spacing="30.0" style="-fx-border-color: #bfbdbd; -fx-background-color: #dedede; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label text="Разделы:">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onAction="#setLoadingPane" prefHeight="26.0" prefWidth="120.0" text="Загрузка модели" />
+                        <Button mnemonicParsing="false" onAction="#setDisplayingPane" text="Конфигурация модели" />
+                        <Button mnemonicParsing="false" onAction="#setInteractingPane" text="Работа с моделью" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets top="30.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </AnchorPane>
+         </left>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="390.4" prefWidth="460.0" spacing="15.0" style="-fx-background-color: #dedede; -fx-border-color: #bfbdbd; -fx-border-radius: 5px; -fx-background-radius: 5px;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label text="В  разделе &quot;Загрузка модели&quot; можно выбрать формат файла модели">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label layoutX="324.0" layoutY="296.0" text="В разделе &quot;Конфигурация модели&quot; можно отобразить системные данные модели">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label layoutX="324.0" layoutY="288.0" text="В  разделе &quot;Работа с моделью&quot; можно загрузить данные и провести вычисления">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </BorderPane>
+   </children>
+</AnchorPane>
